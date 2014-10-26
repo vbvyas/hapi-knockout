@@ -1,0 +1,29 @@
+{
+  "name": "hapi-knockout",
+  "version": "1.0.0",
+  "description": "hapi.js and knockout.js example",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vbvyas/hapi-knockout.git"
+  },
+  "keywords": [
+    "hapi.js",
+    "knockout.js",
+    "node.js"
+  ],
+  "author": "vbvyas",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/vbvyas/hapi-knockout/issues"
+  },
+  "homepage": "https://github.com/vbvyas/hapi-knockout",
+  "dependencies": {
+    "hapi": "^7.1.1",
+    "jade": "^1.7.0",
+    "path": "^0.4.9"
+  }
+}
