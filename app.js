@@ -10,12 +10,14 @@ server.views({
   path: Path.join(__dirname, 'views')
 });
 
+// Note this important for static files
+// like jquery, javascript, css to work
 server.route({
-  path: "/static/{path*}",
   method: 'GET',
+  path: "/{path*}", // for some path css, js, lib
   handler: {
     directory: {
-      path: './public',
+      path: './public', // look under the public directory
       listing: false,
       index: false
     }

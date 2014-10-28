@@ -1,0 +1,29 @@
+{
+  "name": "hapi-knockout",
+  "version": "0.0.1",
+  "homepage": "https://github.com/vbvyas/hapi-knockout",
+  "authors": [
+    "vbvyas"
+  ],
+  "description": "hapi.js and knockout.js example",
+  "main": "index.jade",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "knockout.js",
+    "hapi.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "~3.2.0",
+    "jquery": "~2.1.1"
+  }
+}
