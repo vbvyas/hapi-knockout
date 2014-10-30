@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  ul.folders(data-bind="foreach: folders")
+    li(data-bind="text: $data, css: { selected: $data == $root.chosenFolderId() }, style: { color: $data == $root.chosenFolderId() ? '#a00' : '#00b' }, click: $root.goToFolder")
+
+  table.mails(data-bind="with: chosenFolderData")
+    thead
+      tr
+        th From
+        th To
+        th Subject
+        th Date
+    tbody(data-bind="foreach: mails")
+      tr
+        td(data-bind="text: from")
+        td(data-bind="text: to")
+        td(data-bind="text: subject")
+        td(data-bind="text: date")
+
+  script(src='/lib/jquery/dist/jquery.min.js')
+  script(src='/lib/knockout/dist/knockout.js')
+  script(src='/js/page.js')

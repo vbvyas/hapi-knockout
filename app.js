@@ -32,6 +32,23 @@ server.route({
   }
 });
 
+server.route({
+  method: 'GET',
+  path: '/page',
+  handler: function (req, res) {
+    res.view('page');
+  }
+});
+
+server.route({
+  method: 'GET',
+  path: '/mail',
+  handler: function (req, res) {
+    var json = require('./data/' + req.query.folder + '.json');
+    return res(json);
+  }
+});
+
 server.start(function() {
   console.log("Hapi server started @", server.info.uri);
 });
