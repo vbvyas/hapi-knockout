@@ -44,7 +44,12 @@ server.route({
   method: 'GET',
   path: '/mail',
   handler: function (req, res) {
-    var json = require('./data/' + req.query.folder + '.json');
+    var json = {};
+    if (req.query.mailId) {
+      json = require('./data/mail.json');
+    } else {
+      json = require('./data/' + req.query.folder + '.json');
+    }
     return res(json);
   }
 });

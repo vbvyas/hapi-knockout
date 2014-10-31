@@ -12,11 +12,25 @@ block content
         th Subject
         th Date
     tbody(data-bind="foreach: mails")
-      tr
+      tr(data-bind="click: $root.goToMail")
         td(data-bind="text: from")
         td(data-bind="text: to")
         td(data-bind="text: subject")
         td(data-bind="text: date")
+
+  .viewMail(data-bind="with: chosenMailData")
+    .mailInfo
+      h1(data-bind="text: subject")
+      p
+        label From:
+          span(data-bind="text: from")
+      p
+        label To:
+          span(data-bind="text: to")
+      p
+        label Date:
+          span(data-bind="text: date")
+    p.message(data-bind="html: messageContent")
 
   script(src='/lib/jquery/dist/jquery.min.js')
   script(src='/lib/knockout/dist/knockout.js')
