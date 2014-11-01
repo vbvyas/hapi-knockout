@@ -9,9 +9,6 @@ function WebmailViewModel() {
   self.goToFolder = function (folder) { location.hash = folder };
   self.goToMail = function (mail) { location.hash = mail.folder + '/' + mail.id };
 
-  // show inbox by default
-  self.goToFolder('Inbox');
-
   // client-side routes
   // this makes it easier to use back and forward buttons
   // to get the same experience
