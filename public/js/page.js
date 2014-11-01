@@ -13,6 +13,8 @@ function WebmailViewModel() {
   self.goToFolder('Inbox');
 
   // client-side routes
+  // this makes it easier to use back and forward buttons
+  // to get the same experience
   Sammy(function (){
     this.get('#:folder', function (){
       var folder = this.params.folder;
