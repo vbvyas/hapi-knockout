@@ -11,6 +11,15 @@ function WebmailViewModel() {
 
   // show inbox by default
   self.goToFolder('Inbox');
+
+  // client-side routes
+  Sammy(function (){
+    this.get('#:folder', function (){
+    });
+
+    this.get('#:folder/:mailId', function (){
+    });
+  }).run();
 };
 
 ko.applyBindings(new WebmailViewModel());
