@@ -15,9 +15,16 @@ function WebmailViewModel() {
   // client-side routes
   Sammy(function (){
     this.get('#:folder', function (){
+      var folder = this.params.folder;
+      self.chosenFolderId(folder);
+      self.chosenMailData(null); // stop showing a folder
+      $.get('/mail', { folder: folder }, self.chosenFolderData);
     });
 
     this.get('#:folder/:mailId', function (){
+      self.chosenFolderId(this.params.folder);
+      self.chosenFolderData(null);
+      $.get('/mail', { mailId: this.params.mailId }, self.chosenMailData);
     });
   }).run();
 };
