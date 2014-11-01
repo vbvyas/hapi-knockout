@@ -25,6 +25,9 @@ function WebmailViewModel() {
       self.chosenFolderData(null);
       $.get('/mail', { mailId: this.params.mailId }, self.chosenMailData);
     });
+
+    // reroute empty url to inbox
+    this.get('', function () { this.app.runRoute('get', '#Inbox') });
   }).run();
 };
 
