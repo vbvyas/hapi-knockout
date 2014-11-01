@@ -6,17 +6,8 @@ function WebmailViewModel() {
   self.chosenMailData = ko.observable();
   
   // behaviors
-  self.goToFolder = function (folder) {
-    self.chosenFolderId(folder);
-    self.chosenMailData(null); // stop showing a mail
-    $.get('/mail', { folder: folder }, self.chosenFolderData);
-  };
-
-  self.goToMail = function (mail) {
-    self.chosenFolderId(mail.folder);
-    self.chosenFolderData(null); // stop showing a folder
-    $.get('/mail', { mailId: mail.id }, self.chosenMailData);
-  };
+  self.goToFolder = function (folder) { location.hash = folder };
+  self.goToMail = function (mail) { location.hash = mail.folder + '/' + mail.id };
 
   // show inbox by default
   self.goToFolder('Inbox');
