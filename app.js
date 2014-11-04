@@ -3,6 +3,8 @@ var Hapi = require('hapi');
 
 var server = new Hapi.Server(3000);
 
+// use jade as the view template
+// can be any of html, handlebars, markdown
 server.views({
   engines: {
     jade: require('jade')
