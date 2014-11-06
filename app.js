@@ -3,6 +3,15 @@ var Hapi = require('hapi');
 
 var server = new Hapi.Server(3000);
 
+// handle 404
+server.route({
+  method: '*',
+  path: '/{p*}',
+  handler: function (req, res) {
+    res.view('404').code(404);
+  }
+});
+
 // use jade as the view template
 // can be any of html, handlebars, markdown
 server.views({
@@ -16,7 +25,7 @@ server.views({
 // like jquery, javascript, css to work
 server.route({
   method: 'GET',
-  path: "/{path*}", // for some path css, js, lib
+  path: "/public/{path*}", // for some path css, js, lib
   handler: {
     directory: {
       path: './public', // look under the public directory
