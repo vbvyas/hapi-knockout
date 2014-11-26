@@ -1,6 +1,14 @@
 var Path = require('path');
 var Hapi = require('hapi');
 
+// logging using winston
+var winston = require('winston');
+
+// log to file and not console
+var logfile = (process.env.NODE_ENV || 'development') + '.log';
+winston.add(winston.tranports.File, { filename: logfile });
+winston.remove(winston.transports.Console);
+
 var server = new Hapi.Server(3000);
 
 // handle 404
