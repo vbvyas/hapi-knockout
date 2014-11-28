@@ -6,7 +6,9 @@ var winston = require('winston');
 
 // log to file and not console
 var logfile = (process.env.NODE_ENV || 'development') + '.log';
-winston.add(winston.tranports.File, { filename: logfile });
+console.log(winston.transports);
+console.log(winston.transports.File);
+//winston.add(winston.tranports.File, { filename: logfile });
 winston.remove(winston.transports.Console);
 
 var server = new Hapi.Server(3000);
