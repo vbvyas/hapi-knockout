@@ -1,15 +1,9 @@
 var Path = require('path');
 var Hapi = require('hapi');
 
-// logging using winston
-var winston = require('winston');
-
-// log to file and not console
-var logfile = (process.env.NODE_ENV || 'development') + '.log';
-console.log(winston.transports);
-console.log(winston.transports.File);
-//winston.add(winston.tranports.File, { filename: logfile });
-winston.remove(winston.transports.Console);
+// logging using bunyan
+var bunyan = require('bunyan');
+var log = bunyan.createLogger({ name: 'hapi-knockout' });
 
 var server = new Hapi.Server(3000);
 
@@ -18,7 +12,7 @@ server.route({
   method: '*',
   path: '/{p*}',
   handler: function (req, res) {
-    winston.info('404', { query: req.query });
+    log.info('404', { params: req.params, query: req.query });
     res.view('404').code(404);
   }
 });
@@ -77,6 +71,6 @@ server.route({
 });
 
 server.start(function() {
-  winston.info("Hapi server started %s", server.info.uri);
+  log.info("Hapi server started %s", server.info.uri);
   console.log("Hapi server started @", server.info.uri);
 });

@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/vbvyas/hapi-knockout",
   "dependencies": {
+    "bunyan": "^1.2.3",
     "hapi": "^7.1.1",
     "jade": "^1.7.0",
-    "path": "^0.4.9",
-    "winston": "^0.8.3"
+    "path": "^0.4.9"
   }
 }
